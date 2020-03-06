@@ -1,0 +1,25 @@
+06 de Marzo 2020
+
+Conectar las primeras 5 entradas con las entradas del micro que tienen el mismo nombre.
+VPP - MCLR (1)
+VDD - (11), (21), (32), (40)
+VSS - (12), (20), (31), (39)
+PGD - (9)
+PGC - (8)
+
+Usando MPLAB X IPE
+
+Family: 16-bit DSCs (dsPIC30)
+Device dsPIC30F4013
+Tool: PICKit3
+
+Conectarle 5B al micro o que el programador se los de. 
+- Para que el programador le suministre 5V.
+Settings/Advanced Mode/
+	Se habilita el panel izquierdo:
+	Power:
+		ICSP Options:
+			Power Target circuit from Tool (Habilitar)
+
+Cargar archivo Hex File:
+	Seleccionar carpeta DIST/Default/Production/proyecto.X.production.hex
