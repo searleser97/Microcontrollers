@@ -141,14 +141,6 @@ void iniInterrupciones( void )
 /****************************************************************************/
 void iniPerifericos( void )
 {
-//    TRISB=0;
-//    Nop();
-//    LATB=0;
-//    Nop();
-//    PORTB=0;
-//    Nop();
-//    ADPCFG=0xFFFF;
-//    Nop();
     PORTB = 0;
     Nop();
     LATB = 0;
