@@ -10,9 +10,10 @@
     .GLOBAL	_datoLCD
     .GLOBAL	_busyFlagLCD
     .GLOBAL	_iniLCD8Bits
-    .EQU	RS_LCD,	RF2
-    .EQU	RW_LCD,	RF3
+    .EQU	RS_LCD,	RD0
+    .EQU	RW_LCD,	RD1
     .EQU	E_LCD,	RD2
+    .EQU	BF_LCD,	RB7
     
 _funcion1:
     PUSH    W0
@@ -61,9 +62,9 @@ _comandoLCD:
     NOP
     
     
-    BCLR    PORTF,  #RS_LCD
+    BCLR    PORTD,  #RS_LCD
     NOP
-    BCLR    PORTF,  #RW_LCD
+    BCLR    PORTD,  #RW_LCD
     NOP
     BSET    PORTD,  #E_LCD
     NOP
@@ -71,16 +72,15 @@ _comandoLCD:
     MOV.B    WREG,    PORTB
     NOP  
     
-    BCLR     PORTD, #RD2
+    BCLR     PORTD, #E_LCD
     NOP
     return
     
 _datoLCD:
-    CLR    TRISF
     CLR    TRISD
-    BSET   PORTF,  #RS_LCD
+    BSET   PORTD,  #RS_LCD
     NOP
-    BCLR    PORTF,  #RW_LCD
+    BCLR    PORTD,  #RW_LCD
     NOP
     BSET    PORTD,  #E_LCD
     NOP
@@ -95,26 +95,25 @@ _datoLCD:
     
 _busyFlagLCD:
     PUSH    W0
-    CLR    TRISF
     CLR    TRISD
-    BCLR    PORTF,  #RS_LCD
+    BCLR    PORTD,  #RS_LCD
     NOP
     
     SETM.B  TRISB
     NOP
     
-    BSET    PORTF,  #RW_LCD
+    BSET    PORTD,  #RW_LCD
     NOP
     
     BSET    PORTD,  #E_LCD
     NOP
 PROCESA:
-    BTSC    PORTB,  #RB7
+    BTSC    PORTB,  #BF_LCD
     GOTO    PROCESA
     
     BCLR    PORTD,#E_LCD
     NOP
-    BCLR    PORTF,  #RW_LCD
+    BCLR    PORTD,  #RW_LCD
     NOP
     
     SETM    TRISB

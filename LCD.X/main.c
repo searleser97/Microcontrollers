@@ -141,13 +141,30 @@ void iniInterrupciones( void )
 /****************************************************************************/
 void iniPerifericos( void )
 {
-    TRISB=0;
+//    TRISB=0;
+//    Nop();
+//    LATB=0;
+//    Nop();
+//    PORTB=0;
+//    Nop();
+//    ADPCFG=0xFFFF;
+//    Nop();
+    PORTB = 0;
     Nop();
-    LATB=0;
+    LATB = 0;
     Nop();
-    PORTB=0;
+    TRISB = 0;
     Nop();
     ADPCFG=0xFFFF;
+    PORTD = 0;
+    Nop();
+    LATD = 0;
+    Nop(); 
+    TRISDbits.TRISD0 = 0;
+    Nop();
+    TRISDbits.TRISD1 = 0;
+    Nop();
+    TRISDbits.TRISD2 = 0;
     Nop();
 }
 
