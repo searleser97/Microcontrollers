@@ -17,6 +17,7 @@
                    projectFiles="true">
       <itemPath>lcd.s</itemPath>
       <itemPath>main.c</itemPath>
+      <itemPath>funciones.s</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
