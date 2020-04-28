@@ -16,8 +16,9 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>principal.c</itemPath>
-      <itemPath>RETARDOS.s</itemPath>
-      <itemPath>LCD.s</itemPath>
+      <itemPath>retardos.s</itemPath>
+      <itemPath>LCDlib.s</itemPath>
+      <itemPath>funciones.s</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

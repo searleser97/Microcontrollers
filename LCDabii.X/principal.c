@@ -82,30 +82,39 @@ int var1 __attribute__ ((near));
 
 void iniPerifericos( void );
 void iniInterrupciones( void );
-/**void RETARDO1s( void );
+void RETARDO1s( void );
+void RETARDO15ms( void );
 void datoLCD( char );
+void comandoLCD( void );
+void BusyFlag( void );
 void iniLCD8bits( void );
-void BFLCD( void );
-*/
+void funcion1( void );
+short int funcion2( void );
+
+short int var; // Variable de 16 bits
 int main (void)
 {       
     iniPerifericos();
     iniInterrupciones();
-    /*iniLCD8bits();
+    iniLCD8bits();
     RETARDO1s();
     
-    BFLCD();
+    BusyFlag();
     datoLCD('H');
-    BFLCD();
-    datoLCD('O');
-    BFLCD();
-    datoLCD('L');
-    BFLCD();
-    datoLCD('A');
-    */
-    for(;EVER;) {
+    BusyFlag();
+    datoLCD('o');
+    BusyFlag();
+    datoLCD('l');
+    BusyFlag();
+    datoLCD('a');
+    
+    var = 5;
+    funcion1();
+    short int dato1 = funcion2();
+    for(;EVER;)
+    {
         Nop();
-        //asm("nop");
+        asm("nop");
     }
     
     return 0;
@@ -128,6 +137,24 @@ void iniInterrupciones( void )
 /****************************************************************************/
 void iniPerifericos( void )
 {
+    PORTB = 0;
+    Nop();
+    LATB = 0;
+    Nop();
+    TRISB = 0;
+    Nop();
+    ADPCFG = 0XFFFF;
+    
+    PORTD = 0;
+    Nop();
+    LATD = 0;
+    Nop();
+    TRISDbits.TRISD0 = 0;
+    Nop();
+    TRISDbits.TRISD1 = 0;
+    Nop();
+    TRISDbits.TRISD2 = 0;
+    Nop();
 }
 
 /********************************************************************************/
