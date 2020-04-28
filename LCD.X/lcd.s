@@ -47,12 +47,24 @@ _datoLCD:
     return
     
 _busyFlagLCD:
-    CLR    TRISB
+;    CLR    TRISB
+;    NOP
+;    
+;    SETM.B  TRISB
+;    NOP
+
+    ; -----------
+    PUSH    W1
+    PUSH    W2
+    MOV	    #0X00FF,	W1
     NOP
-    
-    SETM.B  TRISB
+    MOV	    TRISB,	W2
     NOP
-    
+    IOR	    W2,		W1,	W2
+    NOP
+    MOV	    W2,		TRISB
+    NOP
+    ; ------------
     BCLR    PORTD,  #RS_LCD
     NOP
     
@@ -71,10 +83,23 @@ PROCESA:
     BCLR    PORTD,  #RW_LCD
     NOP
     
-    SETM    TRISB
+    ;-----------------
+    MOV	    #0X00FF,	    W1
     NOP
-    CLR.B   TRISB
+    MOV	    TRISB,	    W2
     NOP
+    AND	    W2,		    W1,	    W2
+    NOP
+    MOV	    W2,		    TRISB
+    NOP
+    POP	    W2
+    POP	    W1
+    ;------------------
+    
+;    SETM    TRISB
+;    NOP
+;    CLR.B   TRISB
+;    NOP
     return
     
 
@@ -119,7 +144,19 @@ _iniLCD8Bits:
     return 
     
 RETARDO_15ms:
-    NOP
-    NOP
+    CALL    RETARDO_5ms
+    CALL    RETARDO_5ms
+    CALL    RETARDO_5ms
     return
-  
+
+    
+RETARDO_5ms:
+    PUSH    W0
+    MOV	    #3074,	W0
+CICLO_5ms:
+    DEC	    W0,		W0
+    BRA	    NZ,		CICLO_5ms
+    
+    POP	    W0
+    RETURN
+    
