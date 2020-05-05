@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=principal.c retardos.s LCDlib.s funciones.s
+SOURCEFILES_QUOTED_IF_SPACED=principal.c retardos.s LCDlib.s
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/principal.o ${OBJECTDIR}/retardos.o ${OBJECTDIR}/LCDlib.o ${OBJECTDIR}/funciones.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/principal.o.d ${OBJECTDIR}/retardos.o.d ${OBJECTDIR}/LCDlib.o.d ${OBJECTDIR}/funciones.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/principal.o ${OBJECTDIR}/retardos.o ${OBJECTDIR}/LCDlib.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/principal.o.d ${OBJECTDIR}/retardos.o.d ${OBJECTDIR}/LCDlib.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/principal.o ${OBJECTDIR}/retardos.o ${OBJECTDIR}/LCDlib.o ${OBJECTDIR}/funciones.o
+OBJECTFILES=${OBJECTDIR}/principal.o ${OBJECTDIR}/retardos.o ${OBJECTDIR}/LCDlib.o
 
 # Source Files
-SOURCEFILES=principal.c retardos.s LCDlib.s funciones.s
+SOURCEFILES=principal.c retardos.s LCDlib.s
 
 
 
@@ -129,13 +129,6 @@ ${OBJECTDIR}/LCDlib.o: LCDlib.s  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_AS_PRE)  LCDlib.s  -o ${OBJECTDIR}/LCDlib.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,-MD,"${OBJECTDIR}/LCDlib.o.d",--defsym=__MPLAB_BUILD=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_SIMULATOR=1,-g,--no-relax$(MP_EXTRA_AS_POST)  -mdfp=${DFP_DIR}/xc16
 	@${FIXDEPS} "${OBJECTDIR}/LCDlib.o.d"  $(SILENT)  -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/funciones.o: funciones.s  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/funciones.o.d 
-	@${RM} ${OBJECTDIR}/funciones.o 
-	${MP_CC} $(MP_EXTRA_AS_PRE)  funciones.s  -o ${OBJECTDIR}/funciones.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,-MD,"${OBJECTDIR}/funciones.o.d",--defsym=__MPLAB_BUILD=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_SIMULATOR=1,-g,--no-relax$(MP_EXTRA_AS_POST)  -mdfp=${DFP_DIR}/xc16
-	@${FIXDEPS} "${OBJECTDIR}/funciones.o.d"  $(SILENT)  -rsi ${MP_CC_DIR}../  
-	
 else
 ${OBJECTDIR}/retardos.o: retardos.s  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -150,13 +143,6 @@ ${OBJECTDIR}/LCDlib.o: LCDlib.s  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/LCDlib.o 
 	${MP_CC} $(MP_EXTRA_AS_PRE)  LCDlib.s  -o ${OBJECTDIR}/LCDlib.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,-MD,"${OBJECTDIR}/LCDlib.o.d",--defsym=__MPLAB_BUILD=1,-g,--no-relax$(MP_EXTRA_AS_POST)  -mdfp=${DFP_DIR}/xc16
 	@${FIXDEPS} "${OBJECTDIR}/LCDlib.o.d"  $(SILENT)  -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/funciones.o: funciones.s  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/funciones.o.d 
-	@${RM} ${OBJECTDIR}/funciones.o 
-	${MP_CC} $(MP_EXTRA_AS_PRE)  funciones.s  -o ${OBJECTDIR}/funciones.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,-MD,"${OBJECTDIR}/funciones.o.d",--defsym=__MPLAB_BUILD=1,-g,--no-relax$(MP_EXTRA_AS_POST)  -mdfp=${DFP_DIR}/xc16
-	@${FIXDEPS} "${OBJECTDIR}/funciones.o.d"  $(SILENT)  -rsi ${MP_CC_DIR}../  
 	
 endif
 

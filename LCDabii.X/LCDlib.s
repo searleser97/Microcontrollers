@@ -45,7 +45,8 @@ _BusyFlag:
     MOV		#0X00FF,	W1
     NOP
     MOV		TRISB,		W2
-    AND		W1,		W2,		W2
+    IOR		W1,		W2,		W2
+    MOV		W2,		TRISB
     
     BCLR	PORTD,		#RS_LCD
     BSET	PORTD,		#RW_LCD

@@ -88,10 +88,7 @@ void datoLCD( char );
 void comandoLCD( void );
 void BusyFlag( void );
 void iniLCD8bits( void );
-void funcion1( void );
-short int funcion2( void );
 
-short int var; // Variable de 16 bits
 int main (void)
 {       
     iniPerifericos();
@@ -107,10 +104,7 @@ int main (void)
     datoLCD('l');
     BusyFlag();
     datoLCD('a');
-    
-    var = 5;
-    funcion1();
-    short int dato1 = funcion2();
+   
     for(;EVER;)
     {
         Nop();
