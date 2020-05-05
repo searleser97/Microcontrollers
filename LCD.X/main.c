@@ -93,16 +93,16 @@ void datoLCD(char);
 
 int main (void)
 {       
-    short int dato1, dato2, dato3;
-    char cadena[] = "hola mundo";
+//    short int dato1, dato2, dato3;
+//    char cadena[] = "hola mundo";
     iniPerifericos();
     iniInterrupciones();
     
-    var=5;
-    funcion1();
-    dato1=funcion2();
-    dato2=funcion3(5,12);
-    dato3=funcion4(cadena);
+//    var=5;
+//    funcion1();
+//    dato1=funcion2();
+//    dato2=funcion3(5,12);
+//    dato3=funcion4(cadena);
     
     iniLCD8Bits();
     busyFlagLCD();
@@ -170,9 +170,9 @@ void __attribute__((__interrupt__)) _T1Interrupt( void )
 {
         IFS0bits.T1IF = 0;    //SE LIMPIA LA BANDERA DE INTERRUPCION DEL TIMER 1                      
 }
-
-void __attribute__((__interrupt__)) _INT0Interrupt( void )
-{
-        IFS0bits.INT0IF = 0;    // ES RESPONSABILIDAD DEL PROGRAMADOR APAGAR ESTA BANDERA AL FINAL DE LA ISR
-        // SI NO SE APAGA, PIENSA QUE AUN HAY INTERRUPCIONES PENDIENTES
-}
+//
+//void __attribute__((__interrupt__)) _INT0Interrupt( void )
+//{
+//        IFS0bits.INT0IF = 0;    // ES RESPONSABILIDAD DEL PROGRAMADOR APAGAR ESTA BANDERA AL FINAL DE LA ISR
+//        // SI NO SE APAGA, PIENSA QUE AUN HAY INTERRUPCIONES PENDIENTES
+//}
