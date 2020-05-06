@@ -88,7 +88,6 @@ void comandoLCD( char );
 void BusyFlag( void );
 void iniLCD8bits( void );
 
-
 char UMI, CEN, DEC, UNI;
 
 int main (void) {        
@@ -158,7 +157,7 @@ void iniPerifericos( void ) {
 void __attribute__((__interrupt__, no_auto_psv)) _T1Interrupt( void ) {
         IFS0bits.T1IF = 0;    //SE LIMPIA LA BANDERA DE INTERRUPCION DEL TIMER 1                      
 }
-void __attribute__((__interrupt__, no_auto_psv)) _INT1Interrupt( void ) {
+/*void __attribute__((__interrupt__, no_auto_psv)) _INT1Interrupt( void ) {
         IFS1bits.INT1IF = 0;    //SE LIMPIA LA BANDERA DE INTERRUPCION DEL TIMER 1                      
-}
+}*/
 

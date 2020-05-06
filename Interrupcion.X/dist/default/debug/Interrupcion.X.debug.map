@@ -7,7 +7,7 @@ Command:
   -p30F4013 \
   --mdfp=C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/dsPIC30F_DFP/1.2.53/xc16 \
   -o \
-  dist/default/production/Interrupcion.X.production.elf \
+  dist/default/debug/Interrupcion.X.debug.elf \
   -Lc:/program files/microchip/xc16/v1.50/bin/bin/.. \
   -LC:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/dsPIC30F_DFP/1.2.53/xc16/bin/../support/dsPIC30F/gld \
   -Lc:/program files/microchip/xc16/v1.50/bin/bin/../../lib \
@@ -18,11 +18,14 @@ Command:
   -Lc:/program files/microchip/xc16/v1.50/bin/bin/../../support/dsPIC33C/gld \
   -Lc:/program files/microchip/xc16/v1.50/bin/bin/../../support/dsPIC33E/gld \
   -Lc:/program files/microchip/xc16/v1.50/bin/bin/../../support/dsPIC33F/gld \
-  build/default/production/_ext/1901177363/principal.o \
-  build/default/production/retardos.o \
-  build/default/production/LCD.o \
-  build/default/production/interrupciones.o \
+  build/default/debug/_ext/1901177363/principal.o \
+  build/default/debug/retardos.o \
+  build/default/debug/LCD.o \
+  build/default/debug/interrupciones.o \
   --defsym=__MPLAB_BUILD=1 \
+  --defsym=__MPLAB_DEBUG=1 \
+  --defsym=__DEBUG=1 \
+  --defsym=__MPLAB_DEBUGGER_SIMULATOR=1 \
   -Tp30F4013.gld.00 \
   --stack=16 \
   --check-sections \
@@ -35,10 +38,10 @@ Command:
   --stackguard=16 \
   --no-force-link \
   --smart-io \
-  -Map=dist/default/production/Interrupcion.X.production.map \
+  -Map=dist/default/debug/Interrupcion.X.debug.map \
   --report-mem \
   --memorysummary \
-  dist/default/production/memoryfile.xml \
+  dist/default/debug/memoryfile.xml \
   -start-group \
   --library=lega-pic30-elf \
   --library=m-elf \
@@ -99,9 +102,9 @@ section                    address   length (PC units)   length (bytes) (dec)
 
 section                    address      alignment gaps    total length  (dec)
 -------                    -------      --------------    -------------------
-_0000000004B928205eb2e321     0x800                   0            0x80  (128)
+_0000000004BB28205eb2e33d     0x800                   0            0x80  (128)
 .nbss                        0x880                   0             0x6  (6)
-_0000000004B928C05eb2e321     0xf80                   0            0x80  (128)
+_0000000004BB28C05eb2e33d     0xf80                   0            0x80  (128)
 
                  Total "data" memory used (bytes):          0x106  (262) 12%
 
@@ -207,11 +210,14 @@ FICD             0xf8000c           0x000002
 
 Linker script and memory map
 
-LOAD build/default/production/_ext/1901177363/principal.o
-LOAD build/default/production/retardos.o
-LOAD build/default/production/LCD.o
-LOAD build/default/production/interrupciones.o
+LOAD build/default/debug/_ext/1901177363/principal.o
+LOAD build/default/debug/retardos.o
+LOAD build/default/debug/LCD.o
+LOAD build/default/debug/interrupciones.o
                     0x0001                  __MPLAB_BUILD = 0x1
+                    0x0001                  __MPLAB_DEBUG = 0x1
+                    0x0001                  __DEBUG = 0x1
+                    0x0001                  __MPLAB_DEBUGGER_SIMULATOR = 0x1
 LOAD p30F4013
 LOAD c:/program files/microchip/xc16/v1.50/bin/bin/../../lib\libfx-elf.a
                     0x8005c0                  __FUID0 = 0x8005c0
@@ -252,7 +258,7 @@ LOAD c:/program files/microchip/xc16/v1.50/bin/bin/../../lib\libfx-elf.a
  *(.user_init)
  *(.handle)
  *(.isr*)
- .isr.text        0x0001c8          0x8 build/default/production/_ext/1901177363/principal.o
+ .isr.text        0x0001c8          0x8 build/default/debug/_ext/1901177363/principal.o
                   0x0001c8                  __T1Interrupt
  .isr             0x0001d0          0x4 default_isr
                   0x0001d0                  __DefaultInterrupt
@@ -297,7 +303,7 @@ __RESERVED2
 
 __FGS             0xf8000a          0x2
  *(__FGS.sec*)
- __FGS.sec        0xf8000a          0x2 /CW/_FGS
+ __FGS.sec        0xf8000a          0x2 /CW/_FGS`Øõ
                   0xf8000a                  __FGS.sec
 
 __FICD
@@ -314,33 +320,33 @@ userdata
 
 .debug_info       0x000000        0xab9
  *(.debug_info)
- .debug_info      0x000000        0x8de build/default/production/_ext/1901177363/principal.o
- .debug_info      0x0008de         0x9e build/default/production/retardos.o
- .debug_info      0x00097c         0x99 build/default/production/LCD.o
- .debug_info      0x000a15         0xa4 build/default/production/interrupciones.o
+ .debug_info      0x000000        0x8de build/default/debug/_ext/1901177363/principal.o
+ .debug_info      0x0008de         0x9e build/default/debug/retardos.o
+ .debug_info      0x00097c         0x99 build/default/debug/LCD.o
+ .debug_info      0x000a15         0xa4 build/default/debug/interrupciones.o
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev     0x000000        0x122
  *(.debug_abbrev)
- .debug_abbrev    0x000000         0xe6 build/default/production/_ext/1901177363/principal.o
- .debug_abbrev    0x0000e6         0x14 build/default/production/retardos.o
- .debug_abbrev    0x0000fa         0x14 build/default/production/LCD.o
- .debug_abbrev    0x00010e         0x14 build/default/production/interrupciones.o
+ .debug_abbrev    0x000000         0xe6 build/default/debug/_ext/1901177363/principal.o
+ .debug_abbrev    0x0000e6         0x14 build/default/debug/retardos.o
+ .debug_abbrev    0x0000fa         0x14 build/default/debug/LCD.o
+ .debug_abbrev    0x00010e         0x14 build/default/debug/interrupciones.o
 
 .debug_line       0x000000        0x1f3
  *(.debug_line)
- .debug_line      0x000000         0xdd build/default/production/_ext/1901177363/principal.o
- .debug_line      0x0000dd         0x4e build/default/production/retardos.o
- .debug_line      0x00012b         0x77 build/default/production/LCD.o
- .debug_line      0x0001a2         0x51 build/default/production/interrupciones.o
+ .debug_line      0x000000         0xdd build/default/debug/_ext/1901177363/principal.o
+ .debug_line      0x0000dd         0x4e build/default/debug/retardos.o
+ .debug_line      0x00012b         0x77 build/default/debug/LCD.o
+ .debug_line      0x0001a2         0x51 build/default/debug/interrupciones.o
 
 .debug_frame      0x000000         0x7c
  *(.debug_frame)
- .debug_frame     0x000000         0x7c build/default/production/_ext/1901177363/principal.o
+ .debug_frame     0x000000         0x7c build/default/debug/_ext/1901177363/principal.o
 
 .debug_str        0x000000         0x31
  *(.debug_str)
- .debug_str       0x000000         0x31 build/default/production/_ext/1901177363/principal.o
+ .debug_str       0x000000         0x31 build/default/debug/_ext/1901177363/principal.o
 
 .debug_loc
  *(.debug_loc)
@@ -352,7 +358,7 @@ userdata
                   0x000000         0xa3
  *(.debug_pubnames)
  .debug_pubnames
-                  0x000000         0xa3 build/default/production/_ext/1901177363/principal.o
+                  0x000000         0xa3 build/default/debug/_ext/1901177363/principal.o
 
 .debug_ranges
  *(.debug_ranges)
@@ -360,13 +366,13 @@ userdata
 .debug_aranges    0x000000         0x60
  *(.debug_aranges)
  .debug_aranges
-                  0x000000         0x18 build/default/production/_ext/1901177363/principal.o
+                  0x000000         0x18 build/default/debug/_ext/1901177363/principal.o
  .debug_aranges
-                  0x000018         0x18 build/default/production/retardos.o
+                  0x000018         0x18 build/default/debug/retardos.o
  .debug_aranges
-                  0x000030         0x18 build/default/production/LCD.o
+                  0x000030         0x18 build/default/debug/LCD.o
  .debug_aranges
-                  0x000048         0x18 build/default/production/interrupciones.o
+                  0x000048         0x18 build/default/debug/interrupciones.o
                     0x0000                  WREG0 = 0x0
                     0x0000                  _WREG0 = 0x0
                     0x0002                  WREG1 = 0x2
@@ -1065,39 +1071,39 @@ LOAD c:/program files/microchip/xc16/v1.50/bin/bin/../../lib\liblega-pic30-elf.a
 LOAD c:/program files/microchip/xc16/v1.50/bin/bin/../../lib\libm-elf.a
 LOAD c:/program files/microchip/xc16/v1.50/bin/bin/../../lib\liblega-c-elf.a
 END GROUP
-OUTPUT(dist/default/production/Interrupcion.X.production.elf elf32-pic30)
-LOAD /CW/_FGS
+OUTPUT(dist/default/debug/Interrupcion.X.debug.elf elf32-pic30)
+LOAD /CW/_FGS`Øõ
 LOAD default_isr
 LOAD data_init
 
 .debug_pubtypes
                   0x000060         0xb8
  .debug_pubtypes
-                  0x000060         0xb8 build/default/production/_ext/1901177363/principal.o
+                  0x000060         0xb8 build/default/debug/_ext/1901177363/principal.o
 
 __c30_signature
                   0x000118         0x12
  __c30_signature
-                  0x000118          0x6 build/default/production/_ext/1901177363/principal.o
+                  0x000118          0x6 build/default/debug/_ext/1901177363/principal.o
  __c30_signature
                   0x00011e          0x6 c:/program files/microchip/xc16/v1.50/bin/bin/../../lib\liblega-pic30-elf.a(crt0_standard.o)
  __c30_signature
                   0x000124          0x6 c:/program files/microchip/xc16/v1.50/bin/bin/../../lib\liblega-pic30-elf.a(data_init_standard.o)
 
-_0000000004B928205eb2e321
+_0000000004BB28205eb2e33d
                     0x0800         0x80
- _0000000004B928205eb2e321
-                    0x0800         0x80 build/default/production/_ext/1901177363/principal.o
+ _0000000004BB28205eb2e33d
+                    0x0800         0x80 build/default/debug/_ext/1901177363/principal.o
                     0x0800                  _x_input
 
-_0000000004B928C05eb2e321
+_0000000004BB28C05eb2e33d
                     0x0f80         0x80
- _0000000004B928C05eb2e321
-                    0x0f80         0x80 build/default/production/_ext/1901177363/principal.o
+ _0000000004BB28C05eb2e33d
+                    0x0f80         0x80 build/default/debug/_ext/1901177363/principal.o
                     0x0f80                  _y_input
 
 .nbss               0x0880          0x6
- .nbss              0x0880          0x6 build/default/production/_ext/1901177363/principal.o
+ .nbss              0x0880          0x6 build/default/debug/_ext/1901177363/principal.o
                     0x0880                  _var1
                     0x0882                  _UMI
                     0x0883                  _CEN
@@ -1105,46 +1111,46 @@ _0000000004B928C05eb2e321
                     0x0885                  _UNI
 
 .config_MCLRE     0xf80004          0x2
- .config_MCLRE    0xf80004          0x2 build/default/production/_ext/1901177363/principal.o
+ .config_MCLRE    0xf80004          0x2 build/default/debug/_ext/1901177363/principal.o
 
 .config_WDT       0xf80002          0x2
- .config_WDT      0xf80002          0x2 build/default/production/_ext/1901177363/principal.o
+ .config_WDT      0xf80002          0x2 build/default/debug/_ext/1901177363/principal.o
 
 .config_FCKSMEN
                   0xf80000          0x2
  .config_FCKSMEN
-                  0xf80000          0x2 build/default/production/_ext/1901177363/principal.o
+                  0xf80000          0x2 build/default/debug/_ext/1901177363/principal.o
 
 .ivt._T1Interrupt
                   0x00001a          0x2
  .ivt._T1Interrupt
-                  0x00001a          0x2 build/default/production/_ext/1901177363/principal.o
+                  0x00001a          0x2 build/default/debug/_ext/1901177363/principal.o
 
 .ivt._INT1Interrupt
                   0x000034          0x2
  .ivt._INT1Interrupt
-                  0x000034          0x2 build/default/production/interrupciones.o
+                  0x000034          0x2 build/default/debug/interrupciones.o
 
 .text             0x0001d6        0x186
- .text            0x0001d6         0xae build/default/production/LCD.o
+ .text            0x0001d6         0xae build/default/debug/LCD.o
                   0x0001d6                  _datoLCD
                   0x0001ec                  _comandoLCD
                   0x000202                  _BusyFlag
                   0x00022c                  _iniLCD8bits
- .text            0x000284         0x6c build/default/production/_ext/1901177363/principal.o
+ .text            0x000284         0x6c build/default/debug/_ext/1901177363/principal.o
                   0x000284                  _main
                   0x0002be                  _iniInterrupciones
                   0x0002ca                  _iniPerifericos
- .text            0x0002f0         0x42 build/default/production/retardos.o
+ .text            0x0002f0         0x42 build/default/debug/retardos.o
                   0x0002f0                  _RETARDO1s
                   0x000306                  _RETARDO15ms
                   0x000314                  _RETARDO20ms
- .text            0x000332         0x2a build/default/production/interrupciones.o
+ .text            0x000332         0x2a build/default/debug/interrupciones.o
                   0x000332                  __INT1Interrupt
 
 .dinit            0x00035c         0x14
  .dinit           0x00035c         0x14 data_init
 
 .prog             0x000370          0x2
- .prog            0x000370          0x2 build/default/production/_ext/1901177363/principal.o
+ .prog            0x000370          0x2 build/default/debug/_ext/1901177363/principal.o
                   0x000370                  _ps_coeff

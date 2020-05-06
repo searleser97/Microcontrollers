@@ -1,5 +1,5 @@
 	.include "p30F4013.inc"
-	.GLOBAL	_INT1Interrupt
+	.GLOBAL	__INT1Interrupt
 	.GLOBAL _UMI
 	.GLOBAL _CEN
 	.GLOBAL _DEC
@@ -10,6 +10,7 @@
 ; Parametros: Ninguno 
 ; Return: Nada      
 __INT1Interrupt:
+    PUSH	W0
     INC.B	_UNI
     MOV		#10,		W0
     
@@ -34,5 +35,6 @@ __INT1Interrupt:
 
 FIN:
     BCLR	IFS1,		#INT1IF
+    POP		W0
     RETFIE
     
