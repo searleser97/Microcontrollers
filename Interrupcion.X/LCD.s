@@ -39,16 +39,20 @@ _comandoLCD:
     RETURN
 
 _BusyFlag:
+    PUSH	W1
     PUSH	W2
     CLR		W2
     
     MOV		#0X00FF,	W1
     NOP
     MOV		TRISB,		W2
+    NOP
     IOR		W1,		W2,		W2
     MOV		W2,		TRISB
+    NOP
     
     BCLR	PORTD,		#RS_LCD
+    NOP
     BSET	PORTD,		#RW_LCD
     NOP
     BSET	PORTD,		#E_LCD
@@ -61,10 +65,13 @@ _BusyFlag:
     BCLR	PORTD,		#RW_LCD
     
     MOV		#0XFF00,	W1    
+    NOP
     AND		W2,		W1,		W2
     MOV		W2,		TRISB
+    NOP
     
     POP		W2
+    POP		W1
     RETURN
 
 _iniLCD8bits:
