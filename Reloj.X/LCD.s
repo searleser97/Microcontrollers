@@ -19,6 +19,7 @@ _printLCD:
     PUSH	W1
     
     MOV		W0,		W1
+    CLR		W0
 
 LEER_CARACTER:
     MOV.B	[W1++],		W0	    ;W0 = [W1]    

@@ -1,5 +1,5 @@
 	.include "p30F4013.inc"
-	.GLOBAL	__INT1Interrupt
+	.GLOBAL	__T1Interrupt
 
 	; RELOJ
 	.GLOBAL _DHR 
@@ -73,3 +73,5 @@ CASO_ESPECIAL:
     CP.B	_UHR
     BRA		NZ,		FIN_ISR_T1
     GOTO	CONT
+    
+    

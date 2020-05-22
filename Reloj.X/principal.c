@@ -60,8 +60,8 @@
 /********************************************************************************/
 /*DECLARACIÓN DE LA ISR DEL TIMER 1 USANDO __attribute__						*/
 /********************************************************************************/
-void __attribute__((__interrupt__)) _T1Interrupt( void );
-void __attribute__((__interrupt__)) _INT1Interrupt( void );
+//void __attribute__((__interrupt__)) _T1Interrupt( void );
+//void __attribute__((__interrupt__)) _INT1Interrupt( void );
 
 /********************************************************************************/
 /* CONSTANTES ALMACENADAS EN EL ESPACIO DE LA MEMORIA DE PROGRAMA				*/
@@ -103,9 +103,9 @@ int main (void) {
     DSEG = 5, USEG = 9;
     */
     
-    DHR = 1, UHR = 8;
+    DHR = 2, UHR = 3;
     DMIN = 5, UMIN = 9; 
-    DSEG = 5, USEG = 0;
+    DSEG = 5, USEG = 9;
     
     iniTimer();
     enLPOSC();
@@ -142,7 +142,8 @@ int main (void) {
 /****************************************************************************/
 void iniTimer( void ) {
     TMR1 = 0X0000;
-    PR1 = 0X8000;
+    //PR1 = 0X8000;
+    PR1 = 0X0010;
     T1CON = 0X0002;
 }
 
@@ -153,9 +154,11 @@ void iniTimer( void ) {
 /****************************************************************************/
 void iniInterrupciones( void ) {
     // Interrupcion externa 1
-    IFS1bits.INT1IF = 0;
-    INTCON2bits.INT1EP =0;
-    IEC1bits.INT1IE = 1;
+    //IFS1bits.INT1IF = 0;
+    IFS0bits.T1IF = 0;
+    //INTCON2bits.INT1EP = 0;
+    //IEC1bits.INT1IE = 1;
+    IEC0bits.T1IE = 1;
 }
 /****************************************************************************/
 /* DESCRICION:	ESTA RUTINA INICIALIZA LOS PERIFERICOS						*/
@@ -196,10 +199,10 @@ void iniPerifericos( void ) {
 /* SE USA PUSH.S PARA GUARDAR LOS REGISTROS W0, W1, W2, W3, C, Z, N Y DC EN LOS */
 /* REGISTROS SOMBRA																*/
 /********************************************************************************/
-void __attribute__((__interrupt__, no_auto_psv)) _T1Interrupt( void ) {
+/*void __attribute__((__interrupt__, no_auto_psv)) _T1Interrupt( void ) {
         IFS0bits.T1IF = 0;    //SE LIMPIA LA BANDERA DE INTERRUPCION DEL TIMER 1                      
 }
-/*void __attribute__((__interrupt__, no_auto_psv)) _INT1Interrupt( void ) {
+void __attribute__((__interrupt__, no_auto_psv)) _INT1Interrupt( void ) {
         IFS1bits.INT1IF = 0;    //SE LIMPIA LA BANDERA DE INTERRUPCION DEL TIMER 1                      
 }*/
 
