@@ -102,10 +102,10 @@ int main (void) {
     DMIN = 5, UMIN = 9; 
     DSEG = 5, USEG = 9;
     */
-    
+    // 23:59:59
     DHR = 2, UHR = 3;
     DMIN = 5, UMIN = 9; 
-    DSEG = 5, USEG = 9;
+    DSEG = 5, USEG = 8;
     
     iniTimer();
     enLPOSC();

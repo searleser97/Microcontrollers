@@ -93,20 +93,20 @@ section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x100                0xce           0x135  (309)
 .const                       0x1ce                 0x8             0xc  (12)
-.text                        0x1d6               0x24a           0x36f  (879)
-.dinit                       0x420                0x14            0x1e  (30)
-.prog                        0x434                 0x2             0x3  (3)
+.text                        0x1d6               0x24c           0x372  (882)
+.dinit                       0x422                0x14            0x1e  (30)
+.prog                        0x436                 0x2             0x3  (3)
 
-                 Total "program" memory used (bytes):          0x4d1  (1233) 2%
+                 Total "program" memory used (bytes):          0x4d4  (1236) 2%
 
 
 "data" Memory  [Origin = 0x800, Length = 0x800]
 
 section                    address      alignment gaps    total length  (dec)
 -------                    -------      --------------    -------------------
-_0000000004C168205ec80b9d     0x800                   0            0x80  (128)
+_0000000004B338205ecd3991     0x800                   0            0x80  (128)
 .nbss                        0x880                   0            0x12  (18)
-_0000000004C168C05ec80b9d     0xf80                   0            0x80  (128)
+_0000000004B338C05ecd3991     0xf80                   0            0x80  (128)
 
                  Total "data" memory used (bytes):          0x112  (274) 13%
 
@@ -162,40 +162,40 @@ External Symbols in Program Memory (by address):
                   0x000222                  _BusyFlag
                   0x00025a                  _iniLCD8bits
                   0x0002b2                  _main
-                  0x00031e                  _iniTimer
-                  0x00032e                  _iniInterrupciones
-                  0x000338                  _iniPerifericos
-                  0x00036e                  __T1Interrupt
-                  0x0003c4                  _RETARDO1s
-                  0x0003da                  _RETARDO15ms
-                  0x0003e8                  _RETARDO20ms
-                  0x000406                  _enLPOSC
-                  0x000434                  _ps_coeff
+                  0x000320                  _iniTimer
+                  0x000330                  _iniInterrupciones
+                  0x00033a                  _iniPerifericos
+                  0x000370                  __T1Interrupt
+                  0x0003c6                  _RETARDO1s
+                  0x0003dc                  _RETARDO15ms
+                  0x0003ea                  _RETARDO20ms
+                  0x000408                  _enLPOSC
+                  0x000436                  _ps_coeff
                   0xf8000a                  __FGS.sec
 
 External Symbols in Program Memory (by name):
 
                   0x000222                  _BusyFlag
-                  0x0003da                  _RETARDO15ms
-                  0x0003c4                  _RETARDO1s
-                  0x0003e8                  _RETARDO20ms
+                  0x0003dc                  _RETARDO15ms
+                  0x0003c6                  _RETARDO1s
+                  0x0003ea                  _RETARDO20ms
                   0x0001c8                  __DefaultInterrupt
                   0xf8000a                  __FGS.sec
-                  0x00036e                  __T1Interrupt
+                  0x000370                  __T1Interrupt
                   0x000152                  __data_init
                   0x000152                  __data_init_standard
                   0x00013c                  __psv_init
                   0x000100                  __resetPRI
                   0x00020c                  _comandoLCD
                   0x0001f6                  _datoLCD
-                  0x000406                  _enLPOSC
-                  0x00032e                  _iniInterrupciones
+                  0x000408                  _enLPOSC
+                  0x000330                  _iniInterrupciones
                   0x00025a                  _iniLCD8bits
-                  0x000338                  _iniPerifericos
-                  0x00031e                  _iniTimer
+                  0x00033a                  _iniPerifericos
+                  0x000320                  _iniTimer
                   0x0002b2                  _main
                   0x0001d6                  _printLCD
-                  0x000434                  _ps_coeff
+                  0x000436                  _ps_coeff
 
 Memory Configuration
 
@@ -314,7 +314,7 @@ __RESERVED2
 
 __FGS             0xf8000a          0x2
  *(__FGS.sec*)
- __FGS.sec        0xf8000a          0x2 /CW/_FGSêôÎ
+ __FGS.sec        0xf8000a          0x2 /CW/_FGS`i
                   0xf8000a                  __FGS.sec
 
 __FICD
@@ -1088,7 +1088,7 @@ LOAD c:/program files/microchip/xc16/v1.50/bin/bin/../../lib\libm-elf.a
 LOAD c:/program files/microchip/xc16/v1.50/bin/bin/../../lib\liblega-c-elf.a
 END GROUP
 OUTPUT(dist/default/debug/Reloj.X.debug.elf elf32-pic30)
-LOAD /CW/_FGSêôÎ
+LOAD /CW/_FGS`i
 LOAD default_isr
 LOAD data_init
 
@@ -1106,15 +1106,15 @@ __c30_signature
  __c30_signature
                   0x00011b          0x6 c:/program files/microchip/xc16/v1.50/bin/bin/../../lib\liblega-pic30-elf.a(data_init_standard.o)
 
-_0000000004C168205ec80b9d
+_0000000004B338205ecd3991
                     0x0800         0x80
- _0000000004C168205ec80b9d
+ _0000000004B338205ecd3991
                     0x0800         0x80 build/default/debug/principal.o
                     0x0800                  _x_input
 
-_0000000004C168C05ec80b9d
+_0000000004B338C05ecd3991
                     0x0f80         0x80
- _0000000004C168C05ec80b9d
+ _0000000004B338C05ecd3991
                     0x0f80         0x80 build/default/debug/principal.o
                     0x0f80                  _y_input
 
@@ -1148,30 +1148,30 @@ _0000000004C168C05ec80b9d
 .const              0x81ce          0x8 load address 0x0001ce  
  .const             0x81ce          0x8 build/default/debug/principal.o
 
-.text             0x0001d6        0x24a
+.text             0x0001d6        0x24c
  .text            0x0001d6         0xdc build/default/debug/LCD.o
                   0x0001d6                  _printLCD
                   0x0001f6                  _datoLCD
                   0x00020c                  _comandoLCD
                   0x000222                  _BusyFlag
                   0x00025a                  _iniLCD8bits
- .text            0x0002b2         0xbc build/default/debug/principal.o
+ .text            0x0002b2         0xbe build/default/debug/principal.o
                   0x0002b2                  _main
-                  0x00031e                  _iniTimer
-                  0x00032e                  _iniInterrupciones
-                  0x000338                  _iniPerifericos
- .text            0x00036e         0x56 build/default/debug/Interrupciones.o
-                  0x00036e                  __T1Interrupt
- .text            0x0003c4         0x42 build/default/debug/Retardos.o
-                  0x0003c4                  _RETARDO1s
-                  0x0003da                  _RETARDO15ms
-                  0x0003e8                  _RETARDO20ms
- .text            0x000406         0x1a build/default/debug/Timer.o
-                  0x000406                  _enLPOSC
+                  0x000320                  _iniTimer
+                  0x000330                  _iniInterrupciones
+                  0x00033a                  _iniPerifericos
+ .text            0x000370         0x56 build/default/debug/Interrupciones.o
+                  0x000370                  __T1Interrupt
+ .text            0x0003c6         0x42 build/default/debug/Retardos.o
+                  0x0003c6                  _RETARDO1s
+                  0x0003dc                  _RETARDO15ms
+                  0x0003ea                  _RETARDO20ms
+ .text            0x000408         0x1a build/default/debug/Timer.o
+                  0x000408                  _enLPOSC
 
-.dinit            0x000420         0x14
- .dinit           0x000420         0x14 data_init
+.dinit            0x000422         0x14
+ .dinit           0x000422         0x14 data_init
 
-.prog             0x000434          0x2
- .prog            0x000434          0x2 build/default/debug/principal.o
-                  0x000434                  _ps_coeff
+.prog             0x000436          0x2
+ .prog            0x000436          0x2 build/default/debug/principal.o
+                  0x000436                  _ps_coeff
