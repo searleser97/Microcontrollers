@@ -9,14 +9,11 @@
 ; Return: Nada 
 __UART1:
     PUSH	W0
-    PUSH	W1
+    CLR		W0
     MOV		U1RXREG,	W0
-    MOV		W0,		_DATO
-    MOV		_DRCV,		W1
-    MOV		#1,		W1
-    MOV		W1,		_DRCV
+    MOV.B	WREG,		_DATO
+    BSET	_DRCV,		#0
     BCLR	IFS0,		#U1RXIF
-    POP		W1
     POP		W0
     RETFIE
    
