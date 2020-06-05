@@ -88,26 +88,24 @@ void datoLCD(char);
 void comandoLCD(char);
 void BusyFlag(void);
 void iniLCD8bits(void);
-void iniTimer(void);
-void enLPOSC(void);
 void printLCD(char cad[]);
 
-char DATO;
-int DRCV;
+char dato;
+int drcv;
 
 int main (void) {        
     iniPerifericos();   // Configuracion de puertos
     iniUART1();         // Configuracion UART1
     iniLCD8bits();      // Inicializar LCD
     
-    DATO = 0, DRCV = 0;
+    dato = 0, drcv = 0;
     iniInterrupciones(); // Configuracion Interrupciones
     U1MODEbits.UARTEN = 1; // Activacion de UART
     for(;EVER;) {
-        if(DRCV) {
+        if(drcv) {
             BusyFlag();
-            datoLCD(DATO);
-            DRCV = 0;
+            datoLCD(dato);
+            drcv = 0;
         }
         Nop();
         asm("nop");
