@@ -97,33 +97,26 @@ int main (void) {
     activaPerifericos();
     
     for(;EVER;) {
-        
+        asm("PWRSAV #1"); // Idle mood
     }
-   
     return 0;
 }
-/****************************************************************************/
-/* DESCRICION:	ESTA RUTINA INICIALIZA LOS PERIFERICOS						*/
-/* PARAMETROS: NINGUNO                                                      */
-/* RETORNO: NINGUNO															*/
-/****************************************************************************/
+
 void iniPuertos( void ) {
     PORTB = 0;
     Nop();
     LATB = 0;
     Nop();
-    TRISB = 0;
+    TRISBbits.TRISB2 = 1;
     Nop();
-    
-    TRISBbits.
-    ADPCFG = 0XFFFF;
-    
+        
     PORTC = 0;
     Nop();
     LATC = 0;
     Nop();
     TRISC = 0;
     Nop();
+    TRISCbits.TRISC14 = 1;
     
     PORTD = 0;
     Nop();
@@ -131,33 +124,34 @@ void iniPuertos( void ) {
     Nop();
     TRISD = 0;
     Nop();
-    
-    TRISCbits.TRISC13 = 1;
-    Nop();
-    TRISCbits.TRISC14 = 1;
-    Nop();
 }
 void iniUART1( void ) {
-    
+    U1MODE = 0X0420;
+    U1STA = 0X8000;
+    U1BRG = 5;
 }
 void iniTIMER3( void ) {
-    TMR1 = 0X0000;
-    //PR1 = 0X8000;
-    PR1 = 0X0010;
-    T1CON = 0X0002;
+    TMR3 = 0X000;
+    T3CON = 0X0000;
+    PR3 = 225;
 }
 void iniADC( void ) {
-    
+    ADCON1 = 0X0044;
+    ADCON2 = 0X003C;
+    ADCON3 = 0X0F02;
+    ADCHS = 0X0002;
+    ADPCFG = 0XFFFB;
+    ADCSSL = 0X0000;
 }
 void iniInterrupciones( void ) {
-    // Interrupcion externa 1
-    //IFS1bits.INT1IF = 0;
-    IFS0bits.T1IF = 0;
-    //INTCON2bits.INT1EP = 0;
-    //IEC1bits.INT1IE = 1;
-    IEC0bits.T1IE = 1;
+    IFS0bits.ADIF = 0;
+    IFS0bits.T3IF = 0;
+    IEC0bits.ADIE = 1;
+    IEC0bits.T3IE = 1;
 }
-
 void activaPerifericos( void ) {
-    
+    T3CONbits.TON = 1;
+    ADCON1bits.ADON = 1;
+    U1MODEbits.UARTEN = 1;
+    U1STAbits.UTXEN = 1;
 }
