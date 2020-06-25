@@ -16,7 +16,7 @@ __ADCInterrupt:
     CLR		W0
     
     REPEAT	#15
-    ADD		W0,		[w1++],		W0
+    ADD		W0,		[W1++],		W0
     
     LSR		W0,		#4,		W0
     

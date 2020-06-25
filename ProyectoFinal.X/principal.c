@@ -131,7 +131,7 @@ void iniUART1( void ) {
     U1BRG = 5;
 }
 void iniTIMER3( void ) {
-    TMR3 = 0X000;
+    TMR3 = 0X0000;
     T3CON = 0X0000;
     PR3 = 225;
 }
