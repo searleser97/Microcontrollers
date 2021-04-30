@@ -97,9 +97,9 @@ section                    address   length (PC units)   length (bytes) (dec)
 
 section                    address      alignment gaps    total length  (dec)
 -------                    -------      --------------    -------------------
-_0000000004B188205ef39860     0x800                   0            0x80  (128)
+_0000000004AE18205ef51cbc     0x800                   0            0x80  (128)
 .nbss                        0x880                   0             0x2  (2)
-_0000000004B188C05ef39860     0xf80                   0            0x80  (128)
+_0000000004AE18C05ef51cbc     0xf80                   0            0x80  (128)
 
                  Total "data" memory used (bytes):          0x102  (258) 12%
 
@@ -277,7 +277,7 @@ __RESERVED2
 
 __FGS             0xf8000a          0x2
  *(__FGS.sec*)
- __FGS.sec        0xf8000a          0x2 /CW/_FGSêì«
+ __FGS.sec        0xf8000a          0x2 /CW/_FGS $∆
                   0xf8000a                  __FGS.sec
 
 __FICD
@@ -1036,7 +1036,7 @@ LOAD c:/program files/microchip/xc16/v1.50/bin/bin/../../lib\libm-elf.a
 LOAD c:/program files/microchip/xc16/v1.50/bin/bin/../../lib\liblega-c-elf.a
 END GROUP
 OUTPUT(dist/default/production/ADC.X.production.elf elf32-pic30)
-LOAD /CW/_FGSêì«
+LOAD /CW/_FGS $∆
 LOAD default_isr
 LOAD data_init
 
@@ -1054,15 +1054,15 @@ __c30_signature
  __c30_signature
                   0x000153          0x6 c:/program files/microchip/xc16/v1.50/bin/bin/../../lib\liblega-pic30-elf.a(data_init_standard.o)
 
-_0000000004B188205ef39860
+_0000000004AE18205ef51cbc
                     0x0800         0x80
- _0000000004B188205ef39860
+ _0000000004AE18205ef51cbc
                     0x0800         0x80 build/default/production/principal.o
                     0x0800                  _x_input
 
-_0000000004B188C05ef39860
+_0000000004AE18C05ef51cbc
                     0x0f80         0x80
- _0000000004B188C05ef39860
+ _0000000004AE18C05ef51cbc
                     0x0f80         0x80 build/default/production/principal.o
                     0x0f80                  _y_input
 

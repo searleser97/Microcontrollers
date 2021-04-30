@@ -12,20 +12,22 @@ __T3Interrupt:
 __ADCInterrupt:
     PUSH	W0
     PUSH	W1
+    PUSH	W2
+
+    CLR		W2
     MOV		#ADCBUF0,	W1
-    CLR		W0
-    
+ 
     REPEAT	#15
     ADD		W0,		[W1++],		W0
     
     LSR		W0,		#4,		W0
-    
     MOV.B	WREG,		U1TXREG
     LSR		W0,		#8,		W0
     MOV.B	WREG,		U1TXREG
     
     BCLR	IFS0,		#ADIF
     
+    POP		W2
     POP		W1
     POP		W0
     RETFIE

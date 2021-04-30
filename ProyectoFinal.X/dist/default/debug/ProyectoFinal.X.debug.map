@@ -92,11 +92,11 @@ Default Scalar Model: Small
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x100                0xce           0x135  (309)
-.text                        0x1ce               0x1f0           0x2e8  (744)
-.dinit                       0x3be                0x14            0x1e  (30)
-.prog                        0x3d2                 0x2             0x3  (3)
+.text                        0x1ce               0x1f4           0x2ee  (750)
+.dinit                       0x3c2                0x14            0x1e  (30)
+.prog                        0x3d6                 0x2             0x3  (3)
 
-                 Total "program" memory used (bytes):          0x43e  (1086) 2%
+                 Total "program" memory used (bytes):          0x444  (1092) 2%
 
 
 "data" Memory  [Origin = 0x800, Length = 0x800]
@@ -158,8 +158,8 @@ External Symbols in Program Memory (by address):
                   0x000364                  _RETARDO20ms
                   0x000382                  __T3Interrupt
                   0x000388                  __ADCInterrupt
-                  0x0003a4                  _enLPOSC
-                  0x0003d2                  _ps_coeff
+                  0x0003a8                  _enLPOSC
+                  0x0003d6                  _ps_coeff
                   0xf8000a                  __FGS.sec
 
 External Symbols in Program Memory (by name):
@@ -179,7 +179,7 @@ External Symbols in Program Memory (by name):
                   0x000332                  _activaPerifericos
                   0x000204                  _comandoLCD
                   0x0001ee                  _datoLCD
-                  0x0003a4                  _enLPOSC
+                  0x0003a8                  _enLPOSC
                   0x000308                  _iniADC
                   0x000324                  _iniInterrupciones
                   0x000252                  _iniLCD8bits
@@ -188,7 +188,7 @@ External Symbols in Program Memory (by name):
                   0x0002e8                  _iniUART1
                   0x0002aa                  _main
                   0x0001ce                  _printLCD
-                  0x0003d2                  _ps_coeff
+                  0x0003d6                  _ps_coeff
 
 Memory Configuration
 
@@ -307,7 +307,7 @@ __RESERVED2
 
 __FGS             0xf8000a          0x2
  *(__FGS.sec*)
- __FGS.sec        0xf8000a          0x2 /CW/_FGS°â
+ __FGS.sec        0xf8000a          0x2 /CW/_FGS€˜
                   0xf8000a                  __FGS.sec
 
 __FICD
@@ -339,13 +339,13 @@ userdata
  .debug_abbrev    0x00003c         0x14 build/default/debug/Timer.o
  .debug_abbrev    0x000050         0xff build/default/debug/principal.o
 
-.debug_line       0x000000        0x233
+.debug_line       0x000000        0x235
  *(.debug_line)
- .debug_line      0x000000         0x4b build/default/debug/Interrupciones.o
- .debug_line      0x00004b         0x8b build/default/debug/LCD.o
- .debug_line      0x0000d6         0x4e build/default/debug/Retardos.o
- .debug_line      0x000124         0x3e build/default/debug/Timer.o
- .debug_line      0x000162         0xd1 build/default/debug/principal.o
+ .debug_line      0x000000         0x4d build/default/debug/Interrupciones.o
+ .debug_line      0x00004d         0x8b build/default/debug/LCD.o
+ .debug_line      0x0000d8         0x4e build/default/debug/Retardos.o
+ .debug_line      0x000126         0x3e build/default/debug/Timer.o
+ .debug_line      0x000164         0xd1 build/default/debug/principal.o
 
 .debug_frame      0x000000         0xca
  *(.debug_frame)
@@ -1081,7 +1081,7 @@ LOAD c:/program files/microchip/xc16/v1.50/bin/bin/../../lib\libm-elf.a
 LOAD c:/program files/microchip/xc16/v1.50/bin/bin/../../lib\liblega-c-elf.a
 END GROUP
 OUTPUT(dist/default/debug/ProyectoFinal.X.debug.elf elf32-pic30)
-LOAD /CW/_FGS°â
+LOAD /CW/_FGS€˜
 LOAD default_isr
 LOAD data_init
 
@@ -1136,7 +1136,7 @@ _0000000004B088C05ef3f19a
  .config_FCKSMEN
                   0xf80000          0x2 build/default/debug/principal.o
 
-.text             0x0001ce        0x1f0
+.text             0x0001ce        0x1f4
  .text            0x0001ce         0xdc build/default/debug/LCD.o
                   0x0001ce                  _printLCD
                   0x0001ee                  _datoLCD
@@ -1155,15 +1155,15 @@ _0000000004B088C05ef3f19a
                   0x000340                  _RETARDO1s
                   0x000356                  _RETARDO15ms
                   0x000364                  _RETARDO20ms
- .text            0x000382         0x22 build/default/debug/Interrupciones.o
+ .text            0x000382         0x26 build/default/debug/Interrupciones.o
                   0x000382                  __T3Interrupt
                   0x000388                  __ADCInterrupt
- .text            0x0003a4         0x1a build/default/debug/Timer.o
-                  0x0003a4                  _enLPOSC
+ .text            0x0003a8         0x1a build/default/debug/Timer.o
+                  0x0003a8                  _enLPOSC
 
-.dinit            0x0003be         0x14
- .dinit           0x0003be         0x14 data_init
+.dinit            0x0003c2         0x14
+ .dinit           0x0003c2         0x14 data_init
 
-.prog             0x0003d2          0x2
- .prog            0x0003d2          0x2 build/default/debug/principal.o
-                  0x0003d2                  _ps_coeff
+.prog             0x0003d6          0x2
+ .prog            0x0003d6          0x2 build/default/debug/principal.o
+                  0x0003d6                  _ps_coeff
